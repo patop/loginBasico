@@ -7,10 +7,12 @@ use CodeIgniter\Model;
 class UsuarioModel extends Model
 {
    public function obtenerUsuario($data) {
-    $usuario = $this->db->table('t_usuarios');
-    $usuario->where($data);
+    $Usuario = $this->db->table('t_usuario');
+    $user = $data['usuario'];
+    $pass = $data['password'];
+    $Usuario->where('usuario', $user);
 
-    return $usuario->get()->getResultArray();
+    return $Usuario->get()->getResultArray();
     
    }
 }
