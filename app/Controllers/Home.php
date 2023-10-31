@@ -6,10 +6,17 @@ use App\Models\UsuarioModel;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        $mensaje = session('mensaje');
-        return view('login', ["mensaje" => $mensaje]);
+        if (!empty(session())) {
+            $mensaje = session('mensaje');
+            return view('login', ["mensaje" => $mensaje]);
+        }else {
+            return view('inicio');
+
+        }
+
+        
     }
 
     public function inicio() : string {
