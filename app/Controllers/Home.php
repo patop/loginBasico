@@ -8,13 +8,10 @@ class Home extends BaseController
 {
     public function index()
     {
-        if (!empty(session())) {
+        
             $mensaje = session('mensaje');
             return view('login', ["mensaje" => $mensaje]);
-        }else {
-            return view('inicio');
-
-        }
+        
 
         
     }
